@@ -4,7 +4,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
@@ -14,7 +13,9 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item">Logout</li>
+              <li class="dropdown-item"><%= link_to 'Favorite', likes_user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>
@@ -23,6 +24,5 @@
         <% end %>
       </ul>
     </div>
-
   </nav>
 </header>
